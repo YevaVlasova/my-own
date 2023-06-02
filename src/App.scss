@@ -1,0 +1,10 @@
+@import './styles/vars.scss';
+@import './styles/mixins.scss';
+// @import 'styles/home.scss';
+
+.container {
+    max-width: 1150rem;
+    padding: 0 20rem;
+    margin-inline: auto;
+    width: 100%;
+}

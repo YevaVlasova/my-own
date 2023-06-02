@@ -1,0 +1,26 @@
+@import '../../../styles/vars';
+@import '../../../styles/mixins';
+.bg {
+    background: $gradYell;
+    padding-top: 40rem;
+}
+.footer {
+    &__screen {
+        background: rgba( 255, 255, 255, 0.2 );
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        border-radius: $radius $radius 0 0;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        padding: 40rem 60rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+    }
+}
+.copy {
+}
+.copyright {
+    @include text($ff, 700, 14rem, 18rem, $primaryDef);
+}

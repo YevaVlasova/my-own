@@ -1,0 +1,64 @@
+@import '../../../../styles/vars.scss';
+@import '../../../../styles/mixins';
+.projects {
+    margin-top: 40rem;
+    margin-bottom: 40rem;
+    &__section {
+        @include flex-center;
+        flex-direction: column;
+        z-index: 1;
+        padding: 32rem;
+        @include glass-bg;
+    }
+
+    &__title {
+        margin-top: 40rem;
+        @include text($ff, 700, 32rem, 38rem, $primaryDef);
+        margin-bottom: 32rem;
+    }
+
+    &__desc {
+        max-width: 760rem;
+        @include text($ff, 500, 26rem, 30rem, $black);
+        text-align: center;
+        margin-bottom: 60rem;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        // grid-template-columns: repeat(auto-fill, minmax(240rem, 1fr));
+        gap: 32rem;
+        @include tablet {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        border-radius: $radius;
+        object-fit: cover;
+        overflow: hidden;
+    }
+}
+.projects-card {
+    width: 230rem;
+    height: 230rem;
+    flex-shrink: 0;
+    @include flex-center;
+    position: relative;
+    border-radius: $radius;
+    overflow: hidden;
+    box-shadow: $shadow;
+    backdrop-filter: blur( 5.5rem );
+    -webkit-backdrop-filter: blur( 5.5rem );
+    transition: $transition;
+    &:hover {
+        transform: scale(1.2);
+        z-index: 5;
+    }
+}

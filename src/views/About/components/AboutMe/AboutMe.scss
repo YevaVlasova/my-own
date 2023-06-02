@@ -1,0 +1,223 @@
+@import '../../../../styles/vars.scss';
+@import '../../../../styles/mixins';
+.second {
+    background: $gradPin;
+}
+.about {
+    @include flex-center;
+    flex-direction: column;
+    padding: 100rem;
+    &__title {
+        @include text($ff, 700, 32rem, 38rem, $primaryDef);
+        margin-bottom: 32rem;
+    }
+
+    &__desc {
+        max-width: 760rem;
+        @include text($ff, 500, 26rem, 30rem, $black);
+        text-align: center;
+        margin-bottom: 32rem;
+    }
+}
+.about {
+    .box {
+        position: relative;
+        width: 320rem;
+        height: 450rem;
+        @include flex-center;
+        margin: 40rem 30rem;
+        transition: 0.5s;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50rem;
+            width: 50%;
+            height: 100%;
+            background: #fff;
+            border-radius: $radiusSmall;
+            transform: skewX(15deg);
+            transition: $transition;
+
+        }
+        &._pin::after, &._pin::before {
+            background: $gradPin;
+        }
+        &._purp::after, &._purp::before {
+            background: $gradPurp;
+        }
+        &._yell::after, &._yell::before {
+            background: $gradYell;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50rem;
+            width: 50%;
+            height: 100%;
+            background: #fff;
+            border-radius: $radiusSmall;
+            transform: skewX(15deg);
+            transition: $transition;
+            filter: blur(30rem);
+            transition: 0.5s;
+        }
+        &:hover:before, &:hover:after {
+            transform: skewX(0deg);
+            left: 20rem;
+            width: calc(100% - 90rem);
+
+        }
+        // &:nth-child(1):before, &:nth-child(1):after {
+        //     background: $gradPin;
+        // }
+        // &:nth-child(2):before, &:nth-child(2):after {
+        //     background: $gradPurp;
+        // }
+        // &:nth-child(3):before, &:nth-child(3):after {
+        //     background: $gradYell;
+        // }
+        // &:nth-child(4):before, &:nth-child(4):after {
+        //     background: $gradPin;
+        // }
+        // &:nth-child(5):before, &:nth-child(5):after {
+        //     background: $gradPurp;
+        // }
+        // &:nth-child(6):before, &:nth-child(6):after {
+        //     background: $gradYell;
+        // }
+        & > span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            pointer-events: none;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: $radiusSmall;
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur( 5.5rem );
+                -webkit-backdrop-filter: blur( 5.5rem );
+                opacity: 0;
+                transition: 0.5s;
+                animation: animate 2s ease-in-out infinite;
+                box-shadow: $shadow;
+                @keyframes animate {
+                    0%,100% {
+                        transform: translateY(10rem);
+                    }
+                    50% {
+                        transform: translateY(-10rem);
+                    }
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: $radiusSmall;
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur( 5.5rem );
+                -webkit-backdrop-filter: blur( 5.5rem );
+                opacity: 0;
+                transition: 0.5s;
+                animation: animate 2s ease-in-out infinite;
+                box-shadow: $shadow;
+                animation-delay: -1s;
+                @keyframes animate {
+                    0%,100% {
+                        transform: translateY(10rem);
+                    }
+                    50% {
+                        transform: translateY(-10rem);
+                    }
+                }
+            }
+        }
+        &:hover span::before {
+            top: -50rem;
+            left: 50rem;
+            width: 100rem;
+            height: 100rem;
+            opacity: 1;
+        }
+        &:hover span::after {
+            bottom: -50rem;
+            right: 50rem;
+            width: 100rem;
+            height: 100rem;
+            opacity: 1;
+        }
+    }
+}
+
+.content {
+    position: relative;
+    left: 0;
+    // padding: 20rem 40rem;
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: $shadow;
+    border-radius: $radiusSmall;
+    backdrop-filter: blur( 5.5rem );
+    -webkit-backdrop-filter: blur( 5.5rem );
+    z-index: 1;
+    transition: 0.5s;
+    color: #fff;
+    h3 {
+        @include text($ff, 700, 24rem, 30rem, $white);
+        margin-bottom: 12rem;
+    }
+    p {
+        @include text($ff, 500, 18rem, 24rem, $white);
+        margin-bottom: 12rem;
+        padding-bottom: 20rem;
+    }
+
+    &__img {
+        width: 320rem;
+        height: 178rem;
+        border-radius: $radiusSmall $radiusSmall 0 0;
+        object-fit: cover;
+        overflow: hidden;
+        margin-bottom: 32rem;
+        @include flex-center;
+        &:hover {
+            border-radius: 0 0 0 0;
+        }
+    }
+
+    &__info {
+        padding: 0 40rem;
+    }
+}
+.about .box:hover .content {
+    left: -25rem;
+    padding: 60rem 40rem;
+}
+.about-list {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    // flex-wrap: wrap;
+}
+.slide {
+    height: 650rem;
+    @include flex-center;
+    width: 250rem;
+    overflow: hidden;
+}
+.carousel .control-dots .dot {
+    box-shadow: $shadow !important;
+}

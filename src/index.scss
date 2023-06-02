@@ -1,0 +1,230 @@
+@import 'normalize.css';
+@import './styles/vars.scss';
+@import './styles/mixins.scss';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 1px;
+    margin-inline: auto;
+    overflow-x: hidden;
+    @include desktop-small {
+        font-size: 0.9px;
+    }
+    @include tablet {
+        font-size: 0.8px;
+    }
+    @include tablet-small {
+        font-size: 0.7px;
+    }
+    @include mobile {
+        font-size: 0.6px;
+    }
+}
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    font-size: 10rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: $bg;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.container {
+    position: relative;
+    .home-circleP {
+        position: absolute;
+        z-index: -3;
+        overflow-x: hidden;
+        width: 300rem;
+        height: 300rem;
+        left: -115rem;
+        top: -20rem;
+        background: $gradPurp;
+        border-radius: $radiusImage;
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        animation: circleP 5s ease-in-out infinite;
+        @keyframes circleP {
+            0%,100% {
+                transform: translate(10rem, 20rem);
+            }
+            50% {
+                transform: translate(-10rem, -20rem);
+            }
+        }
+    }
+    .home-circleY {
+        position: absolute;
+        z-index: -3;
+        overflow-x: hidden;
+        width: 420rem;
+        height: 420rem;
+        right: -300rem;
+        bottom: -170rem;
+        background: $gradPin;
+        border-radius: $radiusImage;
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        animation: circleY 8s ease-in-out infinite;
+        @keyframes circleY {
+            0%,100% {
+                transform: translateY(10rem);
+            }
+            50% {
+                transform: translateY(-10rem);
+            }
+        }
+    }
+    .home-circleS {
+        position: absolute;
+        z-index: -3;
+        overflow-x: hidden;
+        width: 80rem;
+        height: 80rem;
+        right: 52rem;
+        bottom: -85rem;
+        background: $gradYell;
+        border-radius: $radiusImage;
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        animation: circleS 3s ease-in-out infinite;
+        @keyframes circleS {
+            0%,100% {
+                transform: translate(7rem, 20rem);
+            }
+            50% {
+                transform: translate(-7rem, -20rem);
+            }
+        }
+    }
+    .projects-circleA {
+        position: absolute;
+        z-index: -3;
+        overflow-x: hidden;
+        width: 300rem;
+        height: 300rem;
+        left: -115rem;
+        top: -20rem;
+        background: $gradYell;
+        border-radius: $radiusImage;
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        animation: circleA 2s ease-in-out infinite;
+        @keyframes circleA {
+            0%,100% {
+                transform: translate(7rem, 16rem);
+            }
+            50% {
+                transform: translate(-7rem, -16rem);
+            }
+        }
+    }
+    .projects-circleB {
+        position: absolute;
+        z-index: -3;
+        overflow-x: hidden;
+        width: 420rem;
+        height: 420rem;
+        right: -170rem;
+        bottom: -70rem;
+        background: $gradPin;
+        border-radius: $radiusImage;
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        animation: circleB 10s ease-in-out infinite;
+        @keyframes circleB {
+            0%,100% {
+                transform: translate(70rem, 16rem);
+            }
+            50% {
+                transform: translate(-70rem, -16rem);
+            }
+        }
+    }
+    .projects-circleC {
+        position: absolute;
+        z-index: -3;
+        overflow-x: hidden;
+        width: 80rem;
+        height: 80rem;
+        right: -20rem;
+        bottom: 50rem;
+        background: $gradPurp;
+        border-radius: $radiusImage;
+        box-shadow: $shadow;
+        backdrop-filter: blur( 5.5px );
+        -webkit-backdrop-filter: blur( 5.5px );
+        animation: circleC 6s ease-in-out infinite;
+        @keyframes circleC {
+            0%,100% {
+                transform: translate(70rem, 16rem);
+            }
+            50% {
+                transform: translate(-70rem, -16rem);
+            }
+        }
+    }
+}
+
+.btn {
+    background: $primaryHov;
+    padding: 16rem 24rem;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    display: inline-block;
+    border-radius: $radiusSmall;
+    @include text($ff, 500, 16rem, 20rem, $white);
+    margin-bottom: 40rem;
+    transition: $transition;
+    box-shadow: $shadow;
+    &:hover {
+        background: $primaryDef;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+
+    &._github {
+        margin-top: 60rem;
+    }
+    &._mail, &._call {
+        background: rgba( 255, 255, 255, 0.2 );
+        backdrop-filter: blur( 5.5rem );
+        -webkit-backdrop-filter: blur( 5.5rem );
+        border: 1rem solid rgba( 255, 255, 255, 0.18 );
+        @include text($ff, 500, 16rem, 20rem, $primaryHov);
+        &:hover {
+            border: 2rem solid $primaryHov;
+        }
+    }
+}
+*::-webkit-scrollbar {
+    width: 7rem;
+    background-color: $bg;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: $radiusSmall;
+    background-color: $primaryHov;
+}

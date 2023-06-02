@@ -1,0 +1,85 @@
+@import '../../../../styles/vars.scss';
+@import '../../../../styles/mixins';
+.contacts {
+    margin-top: 40rem;
+    margin-bottom: 180rem;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 240rem;
+        height: 240rem;
+        background: $gradPin;
+        border-radius: $radiusImage;
+        transform: translate(-60rem, -80rem);
+        transition: 0.5s;
+        animation: middle 5s ease-in-out infinite;
+        box-shadow: $shadow;
+        @keyframes middle {
+            0%,100% {
+                transform: translate(-60rem, -80rem);
+            }
+            50% {
+                transform: translate(-30rem, -90rem);
+            }
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 200rem;
+        height: 200rem;
+        background: $gradPurp;
+        border-radius: $radiusImage;
+        transform: translate(550rem, -240rem);
+        transition: 0.5s;
+        animation: right 7s ease-in-out infinite;
+        box-shadow: $shadow;
+        @keyframes right {
+            0%,100% {
+                transform: translate(550rem, -240rem);
+            }
+            50% {
+                transform: translate(510rem, -170rem);
+            }
+        }
+    }
+
+    &__screen {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50rem;
+        padding: 32rem;
+        @include glass-bg;
+        @include tablet-small {
+            flex-direction: column;
+        }
+    }
+
+    &__a {
+        display: flex;
+        align-items: center;
+        gap: 30rem;
+    }
+}
+.contacts-info {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 32rem;
+        h2 {
+            @include text($ff, 700, 32rem, 36rem, $text);
+
+        }
+        span {
+            @include text($ff, 400, 18rem, 28rem, $desc);
+            margin-bottom: 60rem;
+            max-width: 570rem;
+        }
+    }
+}
